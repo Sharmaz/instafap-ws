@@ -17,7 +17,6 @@ r.connect(config.db, (err, conn) => {
 
     cursor.on('data', data => {
       let image = data.new_val
-
       if (image.publicId != null) {
         io.sockets.emit('image', image)
       }
@@ -26,4 +25,3 @@ r.connect(config.db, (err, conn) => {
 })
 
 server.listen(port, () => console.log(`listening on port ${port}`))
-
